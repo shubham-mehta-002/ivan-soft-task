@@ -12,6 +12,7 @@ const createBrowser = () =>{
         }
     })
     win.loadFile("index.html")
+    win.webContents.openDevTools()
 }
 
 app.whenReady().then(createBrowser)
