@@ -6,12 +6,20 @@
     <title>Ivan - Note taking App</title>
 </head>
 <body>
-    <header class="text-red-500">
+    <header>
         Notes Taking App
     </header>   
 
-    <div>
-
+    <div class="container">
+        <div class="add-notes-container">
+            <textarea id="noteInput" placeholder="Enter your note..."></textarea>
+            <button id="saveNote">Save Note</button>
+        </div>
+        <div class="presaved-notes-container">
+            <ul id="preSavedNotesList"></ul>
+        </div>
     </div>
+
+    <script src="renderer.js"></script>
 </body>
 </html>
