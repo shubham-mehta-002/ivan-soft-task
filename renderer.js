@@ -6,13 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // intializing notes array
     let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    let currentNodeIndex = null;
+    var currentNodeIndex = null;
 
+
+    // this function will display all the pre saved notes from the localstorage
     const displayPreSavedNotes = () => {
         notesListContainer.innerHTML = ""; 
 
         notesListContainer.innerHTML = notes.map((note, index) => {
-            return `<li key=${index}>
+            return `<li key=${index} class="editNote">
                         ${note}
                         <button class="editNoteBtn" data-noteIndex="${index}">Edit</button>
                     </li>`;
@@ -21,10 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         addEditBtnListeners();
     };
 
+    // to save note 
     const saveNote = () => {
         const noteTextInput = noteInput.value.trim();
         if (noteTextInput === "") return;
-
+        console.log({currentNodeIndex})
         if (currentNodeIndex !== null) {
             notes[currentNodeIndex] = noteTextInput;
             currentNodeIndex = null; 
@@ -54,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.stopPropagation();
         currentNodeIndex = parseInt(e.target.getAttribute('data-noteIndex')); 
         noteInput.value = notes[currentNodeIndex];
-        // console.log({ notes, currentNodeIndex }, notes[currentNodeIndex]);
+        console.log({ notes, currentNodeIndex }, notes[currentNodeIndex]);
     };
 
     saveNoteBtn.addEventListener('click', saveNote);

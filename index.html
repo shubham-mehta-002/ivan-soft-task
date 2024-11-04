@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan - Note taking App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        Notes Taking App
+        <span>Notes Taking App</span>
     </header>   
 
     <div class="container">
@@ -15,8 +16,10 @@
             <textarea id="noteInput" placeholder="Enter your note..."></textarea>
             <button id="saveNoteBtn">Save Note</button>
         </div>
-        <ul id="presaved-notes-container">
-        </ul>
+        <div class="sidebar">
+            <h2>Saved Notes</h2>
+            <ul id="presaved-notes-container"></ul>
+        </div>
     </div>
 
     <script src="renderer.js"></script>
